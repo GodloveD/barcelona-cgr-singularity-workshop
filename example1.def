@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%post
+    apt-get update
+    apt-get -y install fortune cowsay lolcat
+
+%environment
+    export PATH=/usr/games:$PATH
+    export LC_ALL=C
+
+%runscript
+    fortune | cowsay | lolcat
